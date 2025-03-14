@@ -1,0 +1,17 @@
+.ThemeSwitch {
+  /* sizing */
+  height: 100%;
+  width: 5rem;
+  /* display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.toggle-theme {
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 5rem;
+  border: none;
+}
