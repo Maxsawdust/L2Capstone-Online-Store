@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./App.css";
-import { Layout } from "./pages";
+import { Layout, SignUp } from "./pages";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -10,10 +10,7 @@ function App() {
     <div className="App" data-theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* logo */}
-          {/* SearchBar */}
-          {/* NavBar */}
-          {/* Profile */}
+          <Route path="/signup" element={<SignUp />} />
           {/* LandingPage */}
           {/* ProductPage */}
           {/* CartPage */}

@@ -1,7 +1,7 @@
 import "./Header.css";
 import { Link } from "react-router";
 import shopLogo from "../../assets/images/shop-logo.jpg";
-import { ThemeSwitch, SearchBar } from "../";
+import { ThemeSwitch, SearchBar, Nav } from "../";
 
 export default function Header() {
   return (
@@ -14,8 +14,7 @@ export default function Header() {
       </Link>
       <ThemeSwitch />
       <SearchBar />
-      {/* Nav */}
-      {/* Profile */}
+      <Nav />
     </div>
   );
 }

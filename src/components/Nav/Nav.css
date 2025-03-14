@@ -1,0 +1,23 @@
+.Nav {
+  /* sizing */
+  flex: 1;
+  padding: 0 5rem;
+  /* display */
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--primary-font-color);
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.registration-links {
+  font-size: 1.5rem;
+  color: var(--primary-font-color);
+}

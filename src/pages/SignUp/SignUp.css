@@ -1,0 +1,43 @@
+.SignUp {
+  /* sizing */
+  flex: 1;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUp > h1 {
+  /* sizing */
+  font-size: 3rem;
+  /* positioning */
+  margin-bottom: 2rem;
+  /* styling */
+  font-weight: 600;
+  color: var(--primary-font-color);
+}
+
+.signup-container {
+  /* sizing */
+  width: 30%;
+  height: 80%;
+  /* display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* styling */
+  border-radius: 2rem;
+  background-color: var(--secondary-color);
+}
+
+.signup-form {
+  /* sizing */
+  height: 95%;
+  width: 95%;
+  /* display */
+
+  /* styling */
+  border-radius: 1.3rem;
+  background-color: var(--primary-color);
+}

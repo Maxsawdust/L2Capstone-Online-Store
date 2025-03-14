@@ -6,7 +6,7 @@
   --tertiary-color: #e93012;
   --primary-font-color: black;
   --secondary-font-color: white;
-  --primary-border-colour: #b2250e;
+  --primary-border-color: #b2250e;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -22,8 +22,8 @@
   --primary-color: #3a3a3a;
   --secondary-color: #ff8f4d;
   --tertiary-color: #ff4d4d;
-  --primary-font-color: #ffffff;
-  --secondary-font-color: #1a1a1a;
+  --primary-font-color: white;
+  --secondary-font-color: black;
 }
 
 * {
