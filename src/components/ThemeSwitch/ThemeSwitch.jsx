@@ -8,16 +8,20 @@ export default function ThemeSwitch() {
   const themeState = useSelector((state) => state.theme.theme);
 
   const handleChange = (e) => {
-    // passing in th
+    // passing in the checked property as a boolean
     dispatch(toggleTheme(e.target.checked));
   };
 
   return (
     //
     <div className="ThemeSwitch">
-      <button className="toggle-theme">
-        <input role="theme-switch" type="checkbox" onChange={handleChange} />
-      </button>
+      <input
+        type="checkbox"
+        className="toggle-theme"
+        role="theme-switch"
+        onChange={handleChange}
+        checked={themeState === "dark"}
+      />
     </div>
   );
 }

@@ -1,25 +1,25 @@
 :root {
-  --primary-color: ;
-  --secondary-color: ;
-  --tertiary-color: ;
-  --primary-font-color: ;
-  --secondary-font-color: ;
-}
-
-[data-theme="dark"] {
-  --primary-color: ;
-  --secondary-color: ;
-  --tertiary-color: ;
-  --primary-font-color: ;
-  --secondary-font-color: ;
+  --primary-color: #fef5d6;
+  --secondary-color: #ea6913;
+  --tertiary-color: #e93012;
+  --primary-font-color: black;
+  --secondary-font-color: white;
 }
 
 [data-theme="light"] {
-  --primary-color: ;
-  --secondary-color: ;
-  --tertiary-color: ;
-  --primary-font-color: ;
-  --secondary-font-color: ;
+  --primary-color: #fef5d6;
+  --secondary-color: #ea6913;
+  --tertiary-color: #e93012;
+  --primary-font-color: black;
+  --secondary-font-color: white;
+}
+
+[data-theme="dark"] {
+  --primary-color: #3a3a3a;
+  --secondary-color: #ff8f4d;
+  --tertiary-color: #ff4d4d;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: #1a1a1a;
 }
 
 * {
@@ -28,7 +28,7 @@
   box-sizing: border-box;
 }
 
-#root {
+.App {
   height: 100vh;
-  background-color: #4a4a4a;
+  background-color: var(--primary-color);
 }

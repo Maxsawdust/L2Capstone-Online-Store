@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   /* styling */
-  background-color: #ea6913;
+  background-color: var(--secondary-color);
 }
 
 .logo-container {
