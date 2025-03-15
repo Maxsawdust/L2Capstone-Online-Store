@@ -4,8 +4,11 @@ import { InputField } from "../../components";
 import Field from "../../utils/FieldClass";
 import * as Yup from "yup";
 import { validationSchema } from "../../utils/validationSchema";
+import { User } from "../../utils/UserClass";
+import { useNavigate } from "react-router";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   // using formik to handle form validation
   const formik = useFormik({
     // defining intial values
@@ -18,7 +21,22 @@ export default function SignUp() {
 
     // creating a new user object on submit
     onSubmit: (values) => {
-      console.log(values);
+      // initialising users array
+      let users = [];
+      // checking if users already exists in localStorage
+      const savedUsers = localStorage.getItem("users");
+      // setting the users array to existing users if it does
+      if (savedUsers) {
+        users = JSON.parse(savedUsers);
+      }
+
+      // pushing a new User to the array
+      users.push(new User(values.name, values.email, values.password));
+
+      // updating localStorage to reflect the new user
+      localStorage.setItem("users", JSON.stringify(users));
+
+      navigate("/login");
     },
 
     // these stop validation occuring before submission
@@ -33,7 +51,7 @@ export default function SignUp() {
 
   const fields = {
     name: new Field("name", "Enter your name", "text", formik),
-    email: new Field("email", "Enter your email", "email", formik),
+    email: new Field("email", "Enter your email", "text", formik),
     password: new Field(
       "password",
       "Enter a secure password",
@@ -42,7 +60,7 @@ export default function SignUp() {
     ),
     confirmPassword: new Field(
       "confirmPassword",
-      "Please confirm your password",
+      "Confirm your password",
       "password",
       formik
     ),

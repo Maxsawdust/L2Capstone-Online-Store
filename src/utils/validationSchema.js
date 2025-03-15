@@ -7,36 +7,48 @@ export const validationSchema = {
     // all fields use "required()" to make sure they have input
     .required("First name is required")
     // names are validated to only contain numbers
-    .matches(/^[a-zA-Z]+$/, "name can only include letters")
+    .matches(/^[a-zA-Z]+$/, "Name can only include letters")
     // names are validated to be no more than 20 chars
-    .max(20, "Name cannot exceed 20 characters."),
+    .max(20, "Name cannot exceed 20 characters"),
 
   email: Yup.string()
-    .required("Email is required.")
+    .required("Email is required")
     // .email validates for a valid email address
-    .email("Please enter a valid email address."),
+    .email("Please enter a valid email address")
+    // custom validation to check that email has not already been used
+    .test(
+      "unique-email",
+      "There is already an account with this email",
+      (value) => {
+        let users = [];
+        const savedUsers = localStorage.getItem("users");
+        if (savedUsers) {
+          users = JSON.parse(savedUsers);
+        }
+
+        // returning the inverse of users.some again the email value
+        return !users.some((user) => user.email === value);
+      }
+    ),
 
   password: Yup.string()
     .required("Password is required")
-    .min(8, "Password must be at least 8 characters.")
+    .min(8, "Password must be at least 8 characters")
     /* instead of one big regex, I split these up into many smaller ones,
        so that the user knows what they specifically need to change */
-    .matches(/(?=.*\d)/, "Password must contain at least one number.")
+    .matches(/(?=.*\d)/, "Password must contain at least one number")
     .matches(
       /(?=.*[a-z])/,
-      "Password must contain at least one lower-case letter."
+      "Password must contain at least one lower-case letter"
     )
-    .matches(
-      /(?=.*[A-Z])/,
-      "Password must contain at least one capital letter."
-    )
+    .matches(/(?=.*[A-Z])/, "Password must contain at least one capital letter")
     .matches(
       /(?=.*[!@#$%^&*-])/,
-      "Password must contain at least one special character."
+      "Password must contain at least one special character"
     ),
 
   confirmPassword: Yup.string()
     // oneOf can take a reference to another field to make sure they're the same.
-    .oneOf([Yup.ref("password")], "Passwords do not match.")
+    .oneOf([Yup.ref("password")], "Passwords do not match")
     .required("Please confirm your password"),
 };

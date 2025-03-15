@@ -58,8 +58,26 @@
   font-size: 1.15rem;
   /* positioning */
   position: absolute;
-  top: 2.95rem;
-  left: 1.5rem;
+  top: 3.2rem;
+  left: 0rem;
   /* styling */
   color: red;
+}
+
+.show-password {
+  /* sizing */
+  height: 2.5rem;
+  width: 2.5rem;
+  /* positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -3.2rem;
+  /* styling */
+  border-radius: 100%;
+  border: 2px solid #000000b6;
+}
+
+.show-password:active {
+  border: 2px solid var(--primary-border-color);
 }
