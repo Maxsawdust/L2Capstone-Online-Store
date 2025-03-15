@@ -36,8 +36,14 @@
   height: 95%;
   width: 95%;
   /* display */
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* styling */
   border-radius: 1.3rem;
   background-color: var(--primary-color);
+}
+
+.sign-up-submit {
+  margin-top: 5rem;
 }

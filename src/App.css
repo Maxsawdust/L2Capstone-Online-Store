@@ -36,3 +36,22 @@
   height: 100vh;
   background-color: var(--primary-color);
 }
+
+/* styling for buttons */
+button {
+  background-color: white;
+  transition: all 0.1s;
+}
+
+button:hover {
+  background-color: #ececec;
+}
+
+.pill-shape {
+  /* sizing */
+  padding: 0.75rem 2rem;
+  font-size: 2rem;
+  /* styling */
+  border-radius: 2rem;
+  border: 2px solid #000000b6;
+}
