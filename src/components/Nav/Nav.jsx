@@ -1,9 +1,13 @@
 import { Link } from "react-router";
 import "./Nav.css";
+import { useSelector } from "react-redux";
+import { ProfileButton } from "..";
 
 export default function Nav() {
   // REPLACE LATER
-  let isLoggedIn = false;
+  const isLoggedIn = useSelector(
+    (state) => state.currentUserReducer.isLoggedIn
+  );
 
   return (
     //
@@ -15,7 +19,7 @@ export default function Nav() {
         About
       </Link>
       {isLoggedIn ? (
-        "profile"
+        <ProfileButton />
       ) : (
         <div className="registration-links">
           <Link to="/login" className="nav-link">

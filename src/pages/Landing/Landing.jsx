@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "./Landing.css";
 
 export default function Landing() {
+  // getting the currentUser from store for header functionality
   const currentUser = useSelector((state) => state.currentUserReducer.user);
 
   return (
