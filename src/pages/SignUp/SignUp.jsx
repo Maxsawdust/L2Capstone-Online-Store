@@ -46,6 +46,21 @@ export default function SignUp() {
     // using yup to validate the form
     validationSchema: Yup.object({
       ...validationSchema,
+      // custom validation to check that email has not already been used
+      email: validationSchema.email.test(
+        "unique-email",
+        "There is already an account with this email",
+        (value) => {
+          let users = [];
+          const savedUsers = localStorage.getItem("users");
+          if (savedUsers) {
+            users = JSON.parse(savedUsers);
+          }
+
+          // returning the inverse of users.some again the email value
+          return !users.some((user) => user.email === value);
+        }
+      ),
     }),
   });
 

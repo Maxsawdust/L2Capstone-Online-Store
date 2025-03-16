@@ -1,7 +1,7 @@
 .Nav {
   /* sizing */
   flex: 1;
-  padding: 0 5rem;
+  padding: 0 3rem;
   /* display */
   display: flex;
   justify-content: space-between;

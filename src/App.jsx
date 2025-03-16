@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./App.css";
-import { Layout, SignUp } from "./pages";
+import { Layout, SignUp, LogIn } from "./pages";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/signup" element={<SignUp />} />
-          {/* LandingPage */}
+          <Route path="/login" element={<LogIn />} />
           {/* ProductPage */}
           {/* CartPage */}
         </Route>

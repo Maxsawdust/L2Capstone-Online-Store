@@ -8,6 +8,9 @@ export default function Nav() {
   return (
     //
     <div className="Nav">
+      <Link to="/" className="nav-link">
+        Home
+      </Link>
       <Link to="/about" className="nav-link">
         About
       </Link>
@@ -24,7 +27,9 @@ export default function Nav() {
           </Link>
         </div>
       )}
-      <Link className="nav-link">Cart</Link>
+      <Link to="/cart" className="nav-link">
+        Cart
+      </Link>
     </div>
   );
 }

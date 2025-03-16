@@ -14,22 +14,7 @@ export const validationSchema = {
   email: Yup.string()
     .required("Email is required")
     // .email validates for a valid email address
-    .email("Please enter a valid email address")
-    // custom validation to check that email has not already been used
-    .test(
-      "unique-email",
-      "There is already an account with this email",
-      (value) => {
-        let users = [];
-        const savedUsers = localStorage.getItem("users");
-        if (savedUsers) {
-          users = JSON.parse(savedUsers);
-        }
-
-        // returning the inverse of users.some again the email value
-        return !users.some((user) => user.email === value);
-      }
-    ),
+    .email("Please enter a valid email address"),
 
   password: Yup.string()
     .required("Password is required")

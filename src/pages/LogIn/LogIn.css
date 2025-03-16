@@ -1,4 +1,4 @@
-.SignUp {
+.LogIn {
   /* sizing */
   flex: 1;
   /* display */
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.SignUp > h1 {
+.LogIn > h1 {
   /* sizing */
   font-size: 3rem;
   /* positioning */
@@ -18,10 +18,10 @@
   color: var(--primary-font-color);
 }
 
-.signup-container {
+.login-container {
   /* sizing */
   width: 36rem;
-  height: 40rem;
+  height: 30rem;
   /* display */
   display: flex;
   justify-content: center;
@@ -31,11 +31,12 @@
   background-color: var(--secondary-color);
 }
 
-.signup-form {
+.login-form {
   /* sizing */
   height: 95%;
   width: 95%;
   /* display */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +45,16 @@
   background-color: var(--primary-color);
 }
 
-.sign-up-submit {
+.login-error {
+  /* sizing */
+  font-size: 1.5rem;
+  /* positioning */
+  position: absolute;
+  top: 15rem;
+  /* styling */
+  color: red;
+}
+
+.login-submit {
   margin-top: 5rem;
 }
