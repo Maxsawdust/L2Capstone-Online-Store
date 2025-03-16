@@ -1,0 +1,19 @@
+.Landing {
+  /* sizing */
+  flex: 1;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-header {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--primary-font-color);
+}
+
+h2.welcome-message {
+  opacity: 0.8;
+  font-style: italic;
+}

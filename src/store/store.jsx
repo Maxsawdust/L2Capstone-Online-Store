@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./reducers/themeReducer";
-import loggedInReducer from "./reducers/loggedInReducer";
+import currentUserReducer from "./reducers/currentUserReducer";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
-    loggedInReducer: loggedInReducer,
+    currentUserReducer: currentUserReducer,
   },
 });

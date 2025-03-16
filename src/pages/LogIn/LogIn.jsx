@@ -7,19 +7,21 @@ import { InputField } from "../../components";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../../store/reducers/loggedInReducer";
+import { logIn, setCurrentUser } from "../../store/reducers/currentUserReducer";
 
 export default function LogIn() {
   // local state to control error display
   const [isErrorDisplayed, setIsErrorDisplayed] = useState(false);
 
   const navigate = useNavigate();
-  const isLoggedIn = useSelector((state) => state.loggedInReducer.isLoggedIn);
+  const isLoggedIn = useSelector(
+    (state) => state.currentUserReducer.isLoggedIn
+  );
   const dispatch = useDispatch();
   // useEffect to navigate to home if user is already logged in and manages to get to this page
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/welcome");
+      navigate("/");
     }
   }, []);
 
@@ -29,8 +31,10 @@ export default function LogIn() {
       password: "",
     },
 
-    onSubmit: async (values) => {
-      const users = [...JSON.parse(localStorage.getItem("users"))];
+    onSubmit: (values) => {
+      const users = JSON.parse(localStorage.getItem("users"));
+
+      console.log(users);
 
       const invalidCredentials = !users.some(
         (user) =>
@@ -44,9 +48,13 @@ export default function LogIn() {
         return;
       }
 
+      // selecting the current user
+      const currentUser = users.find((user) => user.email === values.email);
+      // using dispatch to set the current user
+      dispatch(setCurrentUser({ ...currentUser }));
       // using dispatch to log the user in
       dispatch(logIn());
-      navigate("/welcome");
+      navigate("/");
     },
 
     validateOnBlur: false,

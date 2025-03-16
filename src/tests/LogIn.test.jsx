@@ -2,7 +2,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import { LogIn } from "../pages";
 import { configureStore } from "@reduxjs/toolkit";
-import loggedInReducer, { logIn } from "../store/reducers/loggedInReducer";
+import currentUserReducer, {
+  logIn,
+} from "../store/reducers/currentUserReducer";
 import { Provider } from "react-redux";
 import { act } from "react";
 
@@ -11,7 +13,7 @@ describe("LogIn tests", () => {
     // creating a mock store
     const store = configureStore({
       reducer: {
-        loggedInReducer: loggedInReducer,
+        currentUserReducer: currentUserReducer,
       },
     });
 
@@ -35,23 +37,24 @@ describe("LogIn tests", () => {
     };
   };
 
-  it("should return false when user logs in with invalid credentials", () => {
+  it("should return false when user logs in with invalid credentials", async () => {
     const { store, emailInput, passwordInput, logInButton } = setup();
 
     // clear storage so there's no user in it
     localStorage.clear();
 
-    // fill in the form
-    fireEvent.change(emailInput, { target: { value: "email@email.com" } });
-    fireEvent.change(passwordInput, { target: { value: "Password1!" } });
-    fireEvent.click(logInButton);
+    await act(() => {
+      fireEvent.change(emailInput, { target: { value: "email@email.com" } });
+      fireEvent.change(passwordInput, { target: { value: "Password1!" } });
+      fireEvent.click(logInButton);
+    });
 
     // get state from mock store
-    const isLoggedIn = store.getState().loggedInReducer.isLoggedIn;
+    const isLoggedIn = store.getState().currentUserReducer.isLoggedIn;
     expect(isLoggedIn).toBe(false);
   });
 
-  it("should return true if user logs in with valid account credentials", async () => {
+  it("should update the store if user logs in with valid credentials", async () => {
     const { store, emailInput, passwordInput, logInButton } = setup();
 
     // clear storage
@@ -70,7 +73,13 @@ describe("LogIn tests", () => {
     });
 
     // get state from mock store
-    const isLoggedIn = store.getState().loggedInReducer.isLoggedIn;
+    const isLoggedIn = store.getState().currentUserReducer.isLoggedIn;
+    const currentUser = store.getState().currentUserReducer.user;
     expect(isLoggedIn).toBe(true);
+    // test strict equal because two objects will never equal eachother usually
+    expect(currentUser).toStrictEqual({
+      email: "email@email.com",
+      password: "Password1!",
+    });
   });
 });
