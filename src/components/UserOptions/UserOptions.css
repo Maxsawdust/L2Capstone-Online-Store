@@ -1,0 +1,50 @@
+.UserOptions {
+  /* sizing */
+  width: 10rem;
+  height: 20rem;
+  /* positioning */
+  position: absolute;
+  top: 5rem;
+}
+
+.UserOptions::before {
+  content: "";
+  /* sizing */
+  width: 1.25rem;
+  height: 1.25rem;
+  /* positioning */
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  /* styling */
+  background-color: var(--primary-border-color);
+  border-radius: 0.2rem;
+}
+
+.options-container {
+  /* sizing */
+  width: 10rem;
+  height: 20rem;
+  padding: 0.5rem 1rem;
+  /* positioning */
+  position: absolute;
+  top: 0;
+  left: -5px;
+  z-index: 1;
+  /* styling */
+  background-color: white;
+  border: 5px solid var(--primary-border-color);
+  border-radius: 1.5rem;
+  animation: rollOut 0.15s ease;
+  overflow: hidden;
+}
+@keyframes rollOut {
+  from {
+    height: 2rem;
+  }
+
+  to {
+    height: 20rem;
+  }
+}

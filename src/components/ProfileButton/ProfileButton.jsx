@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import "./ProfileButton.css";
 import { UserOptions } from "..";
+import { User } from "../../utils/UserClass";
 
 export default function ProfileButton() {
   // local state to control display of UserOptions
