@@ -27,8 +27,7 @@ export default function ProfileButton() {
       <button onClick={handleClick} onBlur={handleBlur}>
         <span className="profile-image">{userFirstLetter}</span>
       </button>
-      <UserOptions />
-      {/* {optionsAreDisplayed ? <UserOptions /> : null} */}
+      {optionsAreDisplayed ? <UserOptions /> : null}
     </div>
   );
 }
