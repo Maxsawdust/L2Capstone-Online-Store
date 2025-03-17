@@ -38,7 +38,8 @@ export default function LogIn() {
 
       const invalidCredentials = !users.some(
         (user) =>
-          user.email === values.email && user.password === values.password
+          user.email.toLowerCase() === values.email.toLowerCase() &&
+          user.password === values.password
       );
 
       setIsErrorDisplayed(invalidCredentials);
@@ -49,9 +50,15 @@ export default function LogIn() {
       }
 
       // selecting the current user
-      const currentUser = users.find((user) => user.email === values.email);
+      const currentUser = users.find(
+        (user) => user.email.toLowerCase() === values.email.toLowerCase()
+      );
       // using dispatch to set the current user
-      dispatch(setCurrentUser({ ...currentUser }));
+      dispatch(
+        setCurrentUser({
+          ...currentUser,
+        })
+      );
       // using dispatch to log the user in
       dispatch(logIn());
       navigate("/");

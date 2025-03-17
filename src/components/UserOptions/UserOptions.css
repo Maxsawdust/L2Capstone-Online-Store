@@ -1,7 +1,7 @@
 .UserOptions {
   /* sizing */
-  width: 10rem;
-  height: 20rem;
+  width: 13rem;
+  height: 17.5rem;
   /* positioning */
   position: absolute;
   top: 5rem;
@@ -24,14 +24,19 @@
 
 .options-container {
   /* sizing */
-  width: 10rem;
-  height: 20rem;
+  width: 13rem;
+  height: 17.5rem;
   padding: 0.5rem 1rem;
   /* positioning */
   position: absolute;
   top: 0;
   left: -5px;
   z-index: 1;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
   /* styling */
   background-color: white;
   border: 5px solid var(--primary-border-color);
@@ -39,6 +44,30 @@
   animation: rollOut 0.15s ease;
   overflow: hidden;
 }
+
+.option {
+  /* sizing */
+  padding: 1rem 0;
+  /* display */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* styling */
+  box-shadow: 0 0.5rem 0.5rem -0.8rem black;
+}
+
+.option > a {
+  color: var(--primary-font-color);
+}
+
+.option > a:hover {
+  opacity: 0.8;
+}
+
+.log-out-button {
+  font-size: 1.5rem;
+}
+
 @keyframes rollOut {
   from {
     height: 2rem;

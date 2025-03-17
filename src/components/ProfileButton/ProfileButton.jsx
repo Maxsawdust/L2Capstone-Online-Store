@@ -19,15 +19,16 @@ export default function ProfileButton() {
   };
 
   const handleBlur = () => {
-    setOptionsAreDisplayed(false);
+    // short timeout to allow the user to click buttons in the options menu
+    setTimeout(() => setOptionsAreDisplayed(false), 100);
   };
-
   return (
     <div className="ProfileButton">
       <button onClick={handleClick} onBlur={handleBlur}>
         <span className="profile-image">{userFirstLetter}</span>
       </button>
-      {optionsAreDisplayed ? <UserOptions /> : null}
+      <UserOptions />
+      {/* {optionsAreDisplayed ? <UserOptions /> : null} */}
     </div>
   );
 }
