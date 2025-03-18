@@ -4,9 +4,11 @@ import {
   TechProduct,
   ClothingProduct,
   BeautyProduct,
+  GroceryProduct,
 } from "./ProductClass";
 
-export const products = [
+// array of products
+const products = [
   new KitchenProduct("Toaster", 29.99, "Will only midly char your bread"),
   new KitchenProduct("Kettle", 11.5, "This kettle will last a lifetime!"),
   new KitchenProduct("Microwave", 32.99, "Superheat your food, the lazy way."),
@@ -58,4 +60,30 @@ export const products = [
     11.99,
     "Outline those lovely peepers you've got!"
   ),
+  new BeautyProduct("Moisuriser", 5.99, "Hydrated skin is spotless skin!"),
+
+  new GroceryProduct(
+    "Coffee beans",
+    8.99,
+    "nature's energy drink, straight from Colombia"
+  ),
+  new GroceryProduct("Yorkshire Gold", 5.0, "The only acceptable tea."),
+  new GroceryProduct("Eggs", 2.99, "By the dozen and free range!"),
+  new GroceryProduct("Cookies", 4.99, "A favourite of that weird blue thing."),
+  new GroceryProduct("Orange Juice", 3.0, "Like apple juice, but orange!"),
 ];
+
+const categoryTypes = [...new Set(products.map((product) => product.category))];
+
+const categories = products.reduce((accumulator, product) => {
+  if (!accumulator[product.category]) {
+    accumulator[product.category] = [];
+  }
+  accumulator[product.category].push(product);
+  return accumulator;
+});
+
+export const storeInventory = {
+  products: products,
+  categories: categories,
+};

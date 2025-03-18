@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { ProductCategoryCard } from "../../components";
-import { products } from "../../utils/storeInventory";
+import { storeInventory } from "../../utils/storeInventory";
 import "./Landing.css";
 
 export default function Landing() {
@@ -11,7 +11,7 @@ export default function Landing() {
       currentUser.name.charAt(0).toUpperCase() + currentUser.name.slice(1);
   }
 
-  console.log(products);
+  console.log(storeInventory);
 
   return (
     <div className="Landing">
@@ -31,7 +31,8 @@ export default function Landing() {
               height="48px"
               viewBox="0 -960 960 960"
               width="48px"
-              fill="#000">
+              fill="#000"
+            >
               <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
             </svg>
           </button>
@@ -42,7 +43,8 @@ export default function Landing() {
               height="48px"
               viewBox="0 -960 960 960"
               width="48px"
-              fill="#000">
+              fill="#000"
+            >
               <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
             </svg>
           </button>

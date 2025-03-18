@@ -40,3 +40,10 @@ export class BeautyProduct extends Product {
     this.category = "beauty";
   }
 }
+
+export class GroceryProduct extends Product {
+  constructor(name, price, description) {
+    super(name, price, description);
+    this.category = "grocery";
+  }
+}
