@@ -17,3 +17,48 @@ h2.welcome-message {
   opacity: 0.8;
   font-style: italic;
 }
+
+.product-categories {
+  /* sizing */
+  flex: 1;
+  width: 75%;
+  /* positioning */
+  margin: 7.5rem 0;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid;
+  /* styling */
+  color: var(--primary-font-color);
+}
+
+.category-carousel {
+  width: 90%;
+  height: 80%;
+  border: 1px solid;
+  position: relative;
+}
+
+.left-arrow,
+.right-arrow {
+  /* sizing */
+  height: 5rem;
+  width: 5rem;
+  /* positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* styling */
+  border-radius: 100%;
+  border: 2px solid var(--secondary-border-color);
+}
+
+.left-arrow {
+  left: 1rem;
+}
+
+.right-arrow {
+  right: 1rem;
+}
