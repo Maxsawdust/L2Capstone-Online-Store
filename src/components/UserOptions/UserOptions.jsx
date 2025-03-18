@@ -22,10 +22,6 @@ export default function UserOptions() {
           <span className="options-cart-value">£0.00</span>
         </div>
 
-        <div className="option options-edit-profile">
-          <Link to="/profile">Edit profile</Link>
-        </div>
-
         <button className="pill-shape log-out-button" onClick={handleClick}>
           Log out
         </button>

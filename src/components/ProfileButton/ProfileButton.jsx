@@ -20,7 +20,7 @@ export default function ProfileButton() {
 
   const handleBlur = () => {
     // short timeout to allow the user to click buttons in the options menu
-    setTimeout(() => setOptionsAreDisplayed(false), 100);
+    setTimeout(() => setOptionsAreDisplayed(false), 150);
   };
   return (
     <div className="ProfileButton">
