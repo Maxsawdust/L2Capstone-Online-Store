@@ -20,9 +20,10 @@ h2.welcome-message {
 
 .product-categories {
   /* sizing */
-  flex: 1;
-  width: 75%;
+  height: 90%;
+  width: 80%;
   /* positioning */
+  position: relative;
   margin: 7.5rem 0;
   /* display */
   display: flex;
@@ -35,30 +36,49 @@ h2.welcome-message {
 }
 
 .category-carousel {
+  /* sizing */
+  padding: 1rem 5rem;
   width: 90%;
   height: 80%;
+
+  /* display */
+  display: flex;
+
+  align-items: center;
+  gap: 1rem;
+  /* styling */
   border: 1px solid;
-  position: relative;
+  /* functionality */
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .left-arrow,
 .right-arrow {
   /* sizing */
-  height: 5rem;
-  width: 5rem;
+  height: 3rem;
+  width: 3rem;
   /* positioning */
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   /* styling */
   border-radius: 100%;
-  border: 2px solid var(--secondary-border-color);
+  border: none;
+  box-shadow: 0 0 0.5rem var(--primary-font-color);
+  background-color: transparent;
+}
+
+.left-arrow > svg,
+.right-arrow > svg {
+  height: 100%;
+  width: 100%;
+  fill: var(--primary-font-color);
 }
 
 .left-arrow {
-  left: 1rem;
+  left: 6%;
 }
 
 .right-arrow {
-  right: 1rem;
+  right: 6%;
 }
