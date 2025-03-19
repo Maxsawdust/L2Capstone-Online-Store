@@ -1,5 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { storeInventory } from "../../utils/storeInventory";
+import { ProductCard } from "../../components";
+import "./Products.css";
 
 export default function Products() {
   // using params to access the category type of products to be displayed
@@ -8,13 +10,28 @@ export default function Products() {
 
   // object to store header jsx
   const headerJSX = {
-    allProducts: <h1>You're now viewing all of our products!</h1>,
+    allProducts: (
+      <>
+        <h1>You're now viewing all of our products!</h1>
+        <h2>Click here to filter by category</h2>
+        {Object.entries(storeInventory.categories).map((category) => {
+          return (
+            <button
+              key={category[0]}
+              onClick={() => navigate(`/products/${category[0]}`)}
+              className="pill-shape category-button">
+              {category[0]}
+            </button>
+          );
+        })}
+      </>
+    ),
 
     selectedCategory: (
       <>
         <h1>You're browsing our {category} products!</h1>
         <button
-          className="pill-shape view-all-products"
+          className="pill-shape category-button"
           onClick={() => navigate("/products/all")}>
           View all products
         </button>
@@ -29,14 +46,14 @@ export default function Products() {
       const jsx = storeInventory.categories[category].products.map(
         (product) => {
           // return the jsx
-          return <p key={product.name}>{product.name}</p>;
+          return <ProductCard product={product} />;
         }
       );
       return jsx;
     } else {
       // otherwise, the param will be "all", so map through all products
       const jsx = storeInventory.allProducts.map((product) => {
-        return <p key={product.name}>{product.name}</p>;
+        return <ProductCard product={product} />;
       });
       return jsx;
     }
