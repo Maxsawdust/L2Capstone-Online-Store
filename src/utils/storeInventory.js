@@ -156,7 +156,7 @@ const products = [
     "Cookies",
     4.99,
     "A favourite of that weird blue thing.",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/640px-2ChocolateChipCookies.jpg"
+    "https://static.vecteezy.com/system/resources/previews/030/665/837/large_2x/cookies-with-white-background-high-quality-ultra-hd-free-photo.jpg"
   ),
 ];
 

@@ -1,4 +1,81 @@
+.ProductCard {
+  /* sizing */
+  max-width: 15rem;
+  min-height: 20rem;
+  padding: 0.7rem 0;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* styling */
+  color: var(--primary-font-color);
+  background-color: var(--primary-color);
+  outline: 5px solid var(--primary-border-color);
+  border-radius: 1rem;
+  position: relative;
+}
+
+.product-content {
+  /* sizing */
+  width: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .product-image {
-  max-width: 5rem;
-  max-height: 5rem;
+  max-width: 8.725rem;
+  max-height: 8.725rem;
+  border: 2px solid var(--primary-font-color);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.buy-section {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-cart {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--secondary-font-color);
+  color: var(--primary-font-color);
+}
+
+.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter-button {
+  border-radius: 100%;
+  border: 2px solid var(--primary-font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-font-color);
+}
+
+.counter-button > svg {
+  fill: var(--primary-font-color);
+}
+
+.add-to-cart-error {
+  /* sizing */
+  padding: 0.7rem 0.5rem;
+  /* positioning */
+  position: absolute;
+  bottom: 0.7rem;
+  /* styling */
+  background-color: red;
+  border-radius: 1rem;
+  cursor: not-allowed;
 }

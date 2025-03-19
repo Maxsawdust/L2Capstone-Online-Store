@@ -10,13 +10,28 @@ export default function Products() {
 
   // object to store header jsx
   const headerJSX = {
-    allProducts: <h1>You're now viewing all of our products!</h1>,
+    allProducts: (
+      <>
+        <h1>You're now viewing all of our products!</h1>
+        <h2>Click here to filter by category</h2>
+        {Object.entries(storeInventory.categories).map((category) => {
+          return (
+            <button
+              key={category[0]}
+              onClick={() => navigate(`/products/${category[0]}`)}
+              className="pill-shape category-button">
+              {category[0]}
+            </button>
+          );
+        })}
+      </>
+    ),
 
     selectedCategory: (
       <>
         <h1>You're browsing our {category} products!</h1>
         <button
-          className="pill-shape view-all-products"
+          className="pill-shape category-button"
           onClick={() => navigate("/products/all")}>
           View all products
         </button>
