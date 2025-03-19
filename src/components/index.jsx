@@ -6,3 +6,4 @@ export { default as InputField } from "./InputField/InputField";
 export { default as ProfileButton } from "./ProfileButton/ProfileButton";
 export { default as UserOptions } from "./UserOptions/UserOptions";
 export { default as ProductCategoryCard } from "./ProductCategoryCard/ProductCategoryCard";
+export { default as ProductCard } from "./ProductCard/ProductCard";

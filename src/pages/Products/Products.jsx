@@ -1,5 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { storeInventory } from "../../utils/storeInventory";
+import { ProductCard } from "../../components";
+import "./Products.css";
 
 export default function Products() {
   // using params to access the category type of products to be displayed
@@ -29,14 +31,14 @@ export default function Products() {
       const jsx = storeInventory.categories[category].products.map(
         (product) => {
           // return the jsx
-          return <p key={product.name}>{product.name}</p>;
+          return <ProductCard product={product} />;
         }
       );
       return jsx;
     } else {
       // otherwise, the param will be "all", so map through all products
       const jsx = storeInventory.allProducts.map((product) => {
-        return <p key={product.name}>{product.name}</p>;
+        return <ProductCard product={product} />;
       });
       return jsx;
     }
