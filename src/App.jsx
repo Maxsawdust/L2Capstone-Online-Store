@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./App.css";
-import { Layout, SignUp, LogIn, Landing } from "./pages";
+import { Layout, SignUp, LogIn, Landing, Products } from "./pages";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
           <Route index element={<Landing />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/products/:category" element={<Products />} />
           {/* CartPage */}
         </Route>
       </Routes>

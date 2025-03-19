@@ -4,7 +4,7 @@ import "./ProductCategoryCard.css";
 
 export default function ProductCategoryCard({ type }) {
   return (
-    <Link className="ProductCategoryCard">
+    <Link className="ProductCategoryCard" to={`/products/${type}`}>
       <p className="category-name">{type.toUpperCase()}</p>
       <div className="product-images">
         <div>
