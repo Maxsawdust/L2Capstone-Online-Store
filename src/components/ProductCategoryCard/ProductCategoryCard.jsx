@@ -9,7 +9,7 @@ export default function ProductCategoryCard({ type }) {
       <div className="product-images">
         <div>
           {storeInventory.categories[type].products.map((product) => {
-            return <img src={product.imageURL} />;
+            return <img src={product.imageURL} key={product.imageURL} />;
           })}
         </div>
       </div>

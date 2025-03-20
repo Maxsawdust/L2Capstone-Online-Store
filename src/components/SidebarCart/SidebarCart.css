@@ -1,0 +1,35 @@
+.SidebarCart {
+  /* sizing */
+  height: calc(100% - 7rem);
+  width: 15rem;
+  /* positioning */
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  z-index: 2;
+  /* styling */
+  background-color: var(--secondary-color);
+  border-radius: 2rem 0 0 2rem;
+  transition: transform 0.2s;
+}
+
+.sidebar-tag {
+  /* sizing */
+  width: 1.5rem;
+  padding: 0.5rem 0;
+  /* positioning */
+  position: absolute;
+  top: 2.5rem;
+  left: -1.5rem;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  /* styling */
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  cursor: pointer;
+}
+
+.sidebar-tag:hover {
+  background-color: var(--quaternary-color);
+}

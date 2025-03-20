@@ -46,7 +46,7 @@ export default function Products() {
       const jsx = storeInventory.categories[category].products.map(
         (product) => {
           // return the jsx
-          return <ProductCard product={product} />;
+          return <ProductCard product={product} key={`${product}card`} />;
         }
       );
       return jsx;
