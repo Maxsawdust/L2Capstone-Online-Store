@@ -37,6 +37,18 @@
   background-color: white;
 }
 
+.product-description {
+  margin-bottom: 0.2rem;
+}
+
+.product-price {
+  width: 80%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-top: 2px solid var(--primary-border-color);
+  text-align: left;
+}
+
 .buy-section {
   width: 95%;
   display: flex;

@@ -10,8 +10,11 @@ export default function UserOptions() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
+    // log out
     dispatch(logOut());
+    // remove currentUser from store and localStorage
     dispatch(setCurrentUser({}));
+    localStorage.setItem("currentUser", null);
   };
 
   return (

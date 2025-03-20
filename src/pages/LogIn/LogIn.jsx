@@ -59,6 +59,9 @@ export default function LogIn() {
           ...currentUser,
         })
       );
+      // adding currentUser to localStorage
+      localStorage.setItem("currentUser", JSON.stringify({ ...currentUser }));
+
       // using dispatch to log the user in
       dispatch(logIn());
       navigate("/");
