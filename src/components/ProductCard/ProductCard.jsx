@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import "./ProductCard.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../store/reducers/cartReducer";
+import { addProduct, showSidebar } from "../../store/reducers/cartReducer";
 
 export default function ProductCard({ product }) {
   // local state for managing quantity
@@ -26,6 +26,8 @@ export default function ProductCard({ product }) {
     } else {
       // add to cart
       dispatch(addProduct({ ...product, quantity: productQuanitity }));
+      // show the cart sidebar
+      dispatch(showSidebar(true));
     }
   };
 

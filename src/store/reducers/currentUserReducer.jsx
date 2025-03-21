@@ -2,12 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   // get initial loggedIn state from localStorage
-  isLoggedIn: localStorage.getItem("isLoggedIn") === "true" ? true : false,
+  isLoggedIn: false,
   // get initial user state from localStorage
-  user:
-    localStorage.getItem("currentUser") === "null"
-      ? {}
-      : JSON.parse(localStorage.getItem("currentUser")),
+  user: {},
 };
 
 const currenUserSlice = createSlice({
@@ -16,12 +13,10 @@ const currenUserSlice = createSlice({
   reducers: {
     logIn: (state) => {
       state.isLoggedIn = true;
-      localStorage.setItem("isLoggedIn", true);
     },
 
     logOut: (state) => {
       state.isLoggedIn = false;
-      localStorage.setItem("isLoggedIn", false);
     },
 
     setCurrentUser: (state, action) => {

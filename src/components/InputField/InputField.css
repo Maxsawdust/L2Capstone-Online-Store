@@ -55,6 +55,7 @@
 
 .error-message {
   /* sizing */
+  min-width: 100%;
   font-size: 1.15rem;
   /* positioning */
   position: absolute;

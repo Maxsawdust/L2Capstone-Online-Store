@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   totalPrice: 0,
+  isSidebarShown: false,
 };
 
 const cartSlice = createSlice({
@@ -25,8 +26,12 @@ const cartSlice = createSlice({
     },
 
     removeProduct: (state, action) => {},
+
+    showSidebar: (state, action) => {
+      state.isSidebarShown = action.payload;
+    },
   },
 });
 
-export const { addProduct, removeProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, showSidebar } = cartSlice.actions;
 export default cartSlice.reducer;

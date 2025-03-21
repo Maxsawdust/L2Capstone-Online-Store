@@ -1,11 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./SidebarCart.css";
-import { useState } from "react";
+import { showSidebar } from "../../store/reducers/cartReducer";
 import emptyCartImage from "../../assets/images/empty-cart.png";
 
 export default function SidebarCart() {
-  // local state to control the position of sidebar
-  const [isSidebarDisplayed, setIsSidebarDisplayed] = useState(false);
+  // getting sidebar display state from store
+  const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
+  const dispatch = useDispatch();
+
   // getting isLoggedIn from store
   const isLoggedIn = useSelector(
     (state) => state.currentUserReducer.isLoggedIn
@@ -13,9 +15,9 @@ export default function SidebarCart() {
   // getting cart object from store
   const cart = useSelector((state) => state.cartReducer);
 
-  // function that sets isSidebarDisplayed to true or false
+  // function that sets sidebarShown to true or false
   const toggleSidebar = () => {
-    setIsSidebarDisplayed(!isSidebarDisplayed);
+    dispatch(showSidebar(!sidebarShown));
   };
 
   const sidebarContents = {
@@ -66,10 +68,10 @@ export default function SidebarCart() {
       <div
         className="SidebarCart"
         style={{
-          transform: isSidebarDisplayed ? "translateX(0)" : "translateX(100%)",
+          transform: sidebarShown ? "translateX(0)" : "translateX(100%)",
         }}>
         <button className="sidebar-tag" onClick={toggleSidebar}>
-          {isSidebarDisplayed ? "HIDE CART" : "SHOW CART"}
+          {sidebarShown ? "HIDE CART" : "SHOW CART"}
         </button>
 
         <div className="sidebar-cart-contents">

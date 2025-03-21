@@ -38,11 +38,15 @@
   justify-content: space-around;
 
   /* styling */
-  background-color: white;
+  background-color: var(--secondary-font-color);
   border: 5px solid var(--primary-border-color);
   border-radius: 1.5rem;
   animation: rollOut 0.15s ease;
   overflow: hidden;
+}
+
+.options-cart-value {
+  color: var(--primary-font-color);
 }
 
 .option {
