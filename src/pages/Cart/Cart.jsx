@@ -24,13 +24,18 @@ export default function Cart() {
           <h1>View your cart</h1>
           <div>
             <h1>Your total:</h1>
-            <h1 className="cart-page-value">{cartValue}</h1>
+            <h1 className="cart-page-value">{cartValue.toFixed(2)}</h1>
           </div>
         </div>
         <div className="products-in-cart">
           {cartProducts.length > 0
             ? cartProducts.map((product) => {
-                return <CartProduct product={product} />;
+                return (
+                  <CartProduct
+                    product={product}
+                    key={`${product.name}-in-cart`}
+                  />
+                );
               })
             : null}
         </div>

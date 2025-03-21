@@ -51,9 +51,6 @@
   gap: 1rem;
 }
 
-.sidebar-cart-contents > h2 {
-}
-
 .sidebar-cart-contents > h3 {
   opacity: 0.8;
   font-style: italic;
@@ -121,4 +118,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sidebar-amount-and-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-counter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
