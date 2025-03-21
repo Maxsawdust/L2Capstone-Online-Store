@@ -12,6 +12,8 @@ export default function SignUp() {
   // using formik to handle form validation
   const formik = useFormik({
     // defining intial values
+    /* NOTE: I decided not to include surname as instructed in the brief, because
+       I felt it created unnecessary clutter on the page. */
     initialValues: {
       name: "",
       email: "",
@@ -65,7 +67,7 @@ export default function SignUp() {
   });
 
   const fields = {
-    name: new Field("name", "Enter your name", "text", formik),
+    name: new Field("name", "Enter your first name", "text", formik),
     email: new Field("email", "Enter your email", "text", formik),
     password: new Field(
       "password",

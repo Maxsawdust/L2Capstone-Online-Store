@@ -34,5 +34,8 @@
 
 .product-images > div > img {
   max-width: 6rem;
+  min-width: 6rem;
   max-height: 6rem;
+  min-height: 6rem;
+  background-color: white;
 }

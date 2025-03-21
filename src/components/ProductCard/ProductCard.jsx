@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux";
 import "./ProductCard.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct, showSidebar } from "../../store/reducers/cartReducer";
 
 export default function ProductCard({ product }) {
   // local state for managing quantity
   const [productQuanitity, setProductQuantity] = useState(1);
   // local State for handling error display
   const [isLoginErrorDisplayed, setisLoginErrorDisplayed] = useState(false);
+
+  const dispatch = useDispatch();
 
   const isLoggedIn = useSelector(
     (state) => state.currentUserReducer.isLoggedIn
@@ -21,6 +25,9 @@ export default function ProductCard({ product }) {
       }, 2000);
     } else {
       // add to cart
+      dispatch(addProduct({ ...product, quantity: productQuanitity }));
+      // show the cart sidebar
+      dispatch(showSidebar(true));
     }
   };
 
@@ -30,6 +37,7 @@ export default function ProductCard({ product }) {
       <div className="product-content">
         <img src={product.imageURL} alt="" className="product-image" />
         <p className="product-description">{product.description}</p>
+        <p className="product-price">£{product.price}</p>
       </div>
 
       <div className="buy-section">

@@ -6,6 +6,7 @@
   /* display */
   display: flex;
   align-items: center;
+  position: relative;
   /* styling */
   background-color: var(--secondary-color);
 }
@@ -24,4 +25,16 @@
   /* style */
   border-radius: 100%;
   border: 2px solid #0000003d;
+}
+
+.welcome-message {
+  /* positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 17.5rem;
+  /* styling */
+  font-weight: 500;
+  opacity: 0.8;
+  color: black;
 }

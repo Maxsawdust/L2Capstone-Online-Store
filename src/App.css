@@ -15,6 +15,7 @@
   --primary-color: #fef5d6;
   --secondary-color: #ea6913;
   --tertiary-color: #e93012;
+  --quaternary-color: #ff8f4d;
   --primary-font-color: black;
   --secondary-font-color: white;
 }
@@ -23,6 +24,7 @@
   --primary-color: #3a3a3a;
   --secondary-color: #ff8f4d;
   --tertiary-color: #ff4d4d;
+  --quaternary-color: #ea6913;
   --primary-font-color: white;
   --secondary-font-color: black;
 }

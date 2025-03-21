@@ -59,8 +59,10 @@ export default function LogIn() {
           ...currentUser,
         })
       );
+
       // using dispatch to log the user in
       dispatch(logIn());
+
       navigate("/");
     },
 

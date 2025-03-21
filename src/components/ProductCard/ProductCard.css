@@ -28,11 +28,25 @@
 
 .product-image {
   max-width: 8.725rem;
+  min-width: 8.725rem;
   max-height: 8.725rem;
+  min-height: 8.725rem;
   border: 2px solid var(--primary-font-color);
   border-radius: 1rem;
   margin-bottom: 1rem;
   background-color: white;
+}
+
+.product-description {
+  margin-bottom: 0.2rem;
+}
+
+.product-price {
+  width: 80%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-top: 2px solid var(--primary-border-color);
+  text-align: left;
 }
 
 .buy-section {

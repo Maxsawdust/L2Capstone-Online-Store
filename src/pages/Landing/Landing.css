@@ -13,11 +13,6 @@
   color: var(--primary-font-color);
 }
 
-h2.welcome-message {
-  opacity: 0.8;
-  font-style: italic;
-}
-
 .product-categories {
   /* sizing */
   height: 90%;
@@ -30,8 +25,9 @@ h2.welcome-message {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid;
   /* styling */
+  border: 10px solid var(--secondary-color);
+  border-radius: 2rem;
   color: var(--primary-font-color);
 }
 
@@ -46,8 +42,6 @@ h2.welcome-message {
 
   align-items: center;
   gap: 1rem;
-  /* styling */
-  border: 1px solid;
   /* functionality */
   overflow: auto;
   scroll-behavior: smooth;

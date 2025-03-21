@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import "./ProfileButton.css";
 import { UserOptions } from "..";
-import { User } from "../../utils/UserClass";
+import { showSidebar } from "../../store/reducers/cartReducer";
 
 export default function ProfileButton() {
   // local state to control display of UserOptions
   const [optionsAreDisplayed, setOptionsAreDisplayed] = useState(false);
+
+  // dispatch to effect the sidebar cart
+  const dispatch = useDispatch();
 
   // getting the user from state
   const currentUser = useSelector((state) => state.currentUserReducer.user);
@@ -15,7 +18,11 @@ export default function ProfileButton() {
   const userFirstLetter = currentName[0].toUpperCase();
 
   const handleClick = () => {
+    // toggle the options window
     setOptionsAreDisplayed(!optionsAreDisplayed);
+
+    // closing the sidebar in case it's open, as it will overlap
+    dispatch(showSidebar(false));
   };
 
   const handleBlur = () => {

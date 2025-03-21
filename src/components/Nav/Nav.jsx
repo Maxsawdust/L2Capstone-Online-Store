@@ -31,9 +31,9 @@ export default function Nav() {
           </Link>
         </div>
       )}
-      <Link to="/cart" className="nav-link">
+      {/* <Link to="/cart" className="nav-link">
         Cart
-      </Link>
+      </Link> */}
     </div>
   );
 }

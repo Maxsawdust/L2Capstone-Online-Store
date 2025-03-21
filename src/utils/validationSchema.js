@@ -21,16 +21,10 @@ export const validationSchema = {
     .min(8, "Password must be at least 8 characters")
     /* instead of one big regex, I split these up into many smaller ones,
        so that the user knows what they specifically need to change */
-    .matches(/(?=.*\d)/, "Password must contain at least one number")
-    .matches(
-      /(?=.*[a-z])/,
-      "Password must contain at least one lower-case letter"
-    )
-    .matches(/(?=.*[A-Z])/, "Password must contain at least one capital letter")
-    .matches(
-      /(?=.*[!@#$%^&*-])/,
-      "Password must contain at least one special character"
-    ),
+    .matches(/(?=.*\d)/, "Password must contain a number")
+    .matches(/(?=.*[a-z])/, "Password must contain a lower-case letter")
+    .matches(/(?=.*[A-Z])/, "Password must contain a capital letter")
+    .matches(/(?=.*[!@#$%^&*-])/, "Password must contain a special character"),
 
   confirmPassword: Yup.string()
     // oneOf can take a reference to another field to make sure they're the same.

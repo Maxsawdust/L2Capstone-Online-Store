@@ -5,8 +5,6 @@ import { useRef } from "react";
 import "./Landing.css";
 
 export default function Landing() {
-  // getting the currentUser from store for header functionality
-  const currentUser = useSelector((state) => state.currentUserReducer.user);
   const containerRef = useRef(null);
 
   // functions to scroll container on button click
@@ -21,15 +19,7 @@ export default function Landing() {
   return (
     <div className="Landing">
       <div className="landing-header">
-        <h1 className="welcome-message">
-          {currentUser.name
-            ? `Hello ${
-                currentUser.name.charAt(0).toUpperCase() +
-                currentUser.name.slice(1)
-              }!`
-            : "Hello!"}
-        </h1>
-        <h2 className="welcome-message">Welcome to Saunders' superstore!</h2>
+        <h1>Welcome to Saunders' superstore!</h1>
       </div>
 
       <div className="product-categories">

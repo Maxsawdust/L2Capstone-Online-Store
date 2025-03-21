@@ -46,14 +46,14 @@ export default function Products() {
       const jsx = storeInventory.categories[category].products.map(
         (product) => {
           // return the jsx
-          return <ProductCard product={product} />;
+          return <ProductCard product={product} key={`${product.name}card`} />;
         }
       );
       return jsx;
     } else {
       // otherwise, the param will be "all", so map through all products
       const jsx = storeInventory.allProducts.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard product={product} key={`${product.name}card`} />;
       });
       return jsx;
     }

@@ -3,6 +3,7 @@ import { UserOptions } from "../components";
 import { MemoryRouter } from "react-router";
 import { configureStore } from "@reduxjs/toolkit";
 import currentUserReducer from "../store/reducers/currentUserReducer";
+import cartReducer from "../store/reducers/cartReducer";
 import { Provider } from "react-redux";
 import { expect } from "vitest";
 import { act } from "react";
@@ -13,6 +14,7 @@ describe("UserOptions", () => {
     const store = configureStore({
       reducer: {
         currentUserReducer: currentUserReducer,
+        cartReducer: cartReducer,
       },
       // preloadedState to set isLoggedIn to true
       preloadedState: {
