@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./SidebarCart.css";
 import { showSidebar } from "../../store/reducers/cartReducer";
 import emptyCartImage from "../../assets/images/empty-cart.png";
+import { Link } from "react-router";
 
 export default function SidebarCart() {
   // getting sidebar display state from store
@@ -35,7 +36,7 @@ export default function SidebarCart() {
 
     cartOccupied: (
       <>
-        <h2>Your cart:</h2>
+        <Link to="/cart">Your cart:</Link>
         <div className="list-of-products">
           {cart.products.map((product) => {
             return (

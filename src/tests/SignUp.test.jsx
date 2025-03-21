@@ -105,25 +105,21 @@ describe("SignUp Form Validation", () => {
     fireEvent.click(submitButton);
 
     expect(
-      await screen.findByText("Password must contain at least one number")
+      await screen.findByText("Password must contain a number")
     ).toBeInTheDocument();
 
     fireEvent.change(passwordInput, { target: { value: "weakweak1" } });
     fireEvent.click(submitButton);
 
     expect(
-      await screen.findByText(
-        "Password must contain at least one capital letter"
-      )
+      await screen.findByText("Password must contain a capital letter")
     ).toBeInTheDocument();
 
     fireEvent.change(passwordInput, { target: { value: "Weakweak1" } });
     fireEvent.click(submitButton);
 
     expect(
-      await screen.findByText(
-        "Password must contain at least one special character"
-      )
+      await screen.findByText("Password must contain a special character")
     ).toBeInTheDocument();
   });
 

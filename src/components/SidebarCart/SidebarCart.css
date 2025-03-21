@@ -11,6 +11,7 @@
   background-color: var(--secondary-color);
   border-radius: 2rem 0 0 2rem;
   transition: transform 0.2s;
+  box-shadow: -0.2rem 0.2rem 0.5rem -0.3rem var(--primary-font-color);
 }
 
 .sidebar-tag {
@@ -51,15 +52,22 @@
 }
 
 .sidebar-cart-contents > h2 {
-  width: 100%;
-  padding: 0.5rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #000000b7;
 }
 
 .sidebar-cart-contents > h3 {
   opacity: 0.8;
   font-style: italic;
+}
+
+.sidebar-cart-contents > a {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #000000b7;
+  color: black;
+  /* text-decoration: none; */
 }
 
 .empty-cart-image {
