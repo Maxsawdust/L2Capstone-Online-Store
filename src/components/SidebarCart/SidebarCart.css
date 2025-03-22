@@ -67,6 +67,10 @@
   /* text-decoration: none; */
 }
 
+.sidebar-cart-contents > button {
+  font-size: 1.2rem;
+}
+
 .empty-cart-image {
   max-width: 90%;
   margin-top: 3rem;

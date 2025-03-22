@@ -29,7 +29,11 @@ const cartSlice = createSlice({
       );
     },
 
-    removeProduct: (state, action) => {},
+    removeProduct: (state, action) => {
+      const existingProduct = findExistingProduct(state, action);
+      state.totalPrice -= existingProduct.price * existingProduct.quantity;
+      state.products.splice(state.products.indexOf(existingProduct), 1);
+    },
 
     showSidebar: (state, action) => {
       state.isSidebarShown = action.payload;

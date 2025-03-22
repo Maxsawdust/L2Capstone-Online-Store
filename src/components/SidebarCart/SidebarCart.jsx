@@ -7,12 +7,13 @@ import {
   decrementQuantity,
   removeProduct,
 } from "../../store/reducers/cartReducer";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function SidebarCart() {
   // getting sidebar display state from store
   const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // getting isLoggedIn from store
   const isLoggedIn = useSelector(
@@ -41,7 +42,9 @@ export default function SidebarCart() {
 
     cartOccupied: (
       <>
-        <Link to="/cart">Your cart:</Link>
+        <button className="pill-shape" onClick={() => navigate("/cart")}>
+          View Cart
+        </button>
         <div className="list-of-products">
           {cart.products.map((product) => {
             return (
