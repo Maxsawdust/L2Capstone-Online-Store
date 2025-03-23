@@ -8,7 +8,9 @@ export default function ProductCard({ product }) {
   // local state for managing quantity
   const [productQuanitity, setProductQuantity] = useState(1);
   // local State for handling error display
-  const [isLoginErrorDisplayed, setisLoginErrorDisplayed] = useState(false);
+  const [isLoginErrorDisplayed, setIsLoginErrorDisplayed] = useState(false);
+  // local state for purchase confirmation
+  const [displayConfirmation, setDisplayConfirmation] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -18,16 +20,22 @@ export default function ProductCard({ product }) {
 
   const handleAddToCart = () => {
     if (!isLoggedIn) {
-      setisLoginErrorDisplayed(true);
+      setIsLoginErrorDisplayed(true);
       // timeout so message goes away
       setTimeout(() => {
-        setisLoginErrorDisplayed(false);
+        setIsLoginErrorDisplayed(false);
       }, 2000);
     } else {
       // add to cart
       dispatch(addProduct({ ...product, quantity: productQuanitity }));
       // show the cart sidebar
       dispatch(showSidebar(true));
+
+      // display purchase confirmation
+      setDisplayConfirmation(true);
+      setTimeout(() => {
+        setDisplayConfirmation(false);
+      }, 2000);
     }
   };
 
@@ -80,6 +88,10 @@ export default function ProductCard({ product }) {
 
       {isLoginErrorDisplayed ? (
         <div className="add-to-cart-error">Please log in to add to cart!</div>
+      ) : null}
+
+      {displayConfirmation ? (
+        <div className="purchase-confirmation">Added to cart!</div>
       ) : null}
     </div>
   );

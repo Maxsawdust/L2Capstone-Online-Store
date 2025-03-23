@@ -93,3 +93,16 @@
   border-radius: 1rem;
   cursor: not-allowed;
 }
+
+.purchase-confirmation {
+  /* sizing */
+  padding: 0.7rem 0.5rem;
+  /* positioning */
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.2rem;
+  /* styling */
+  background-color: green;
+  border-radius: 1rem;
+  cursor: default;
+}
