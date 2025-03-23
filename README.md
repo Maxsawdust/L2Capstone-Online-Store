@@ -15,3 +15,8 @@
 - Clean intuitive design with interactive components
 
 ## 🚀 Getting Started
+
+1. Clone the repo
+   ```bash
+   git clone
+   ```
