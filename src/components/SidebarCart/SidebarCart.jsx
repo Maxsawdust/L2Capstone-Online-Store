@@ -1,17 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./SidebarCart.css";
-import { showSidebar } from "../../store/reducers/cartReducer";
+import { clearCart, showSidebar } from "../../store/reducers/cartReducer";
 import emptyCartImage from "../../assets/images/empty-cart.png";
 import {
   incrementQuantity,
   decrementQuantity,
   removeProduct,
+  selectShipping,
 } from "../../store/reducers/cartReducer";
 import { Link, useNavigate } from "react-router";
+import { useState } from "react";
 
 export default function SidebarCart() {
+  const [sidebarBuyButtonText, setSidebarBuyButtonText] = useState("Buy");
+
   // getting sidebar display state from store
   const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
+  const shippingMethod = useSelector(
+    (state) => state.cartReducer.shippingMethod
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,6 +32,10 @@ export default function SidebarCart() {
   // function that sets sidebarShown to true or false
   const toggleSidebar = () => {
     dispatch(showSidebar(!sidebarShown));
+  };
+
+  const handleShipping = (e) => {
+    dispatch(selectShipping(e.target.value));
   };
 
   const sidebarContents = {
@@ -96,9 +107,41 @@ export default function SidebarCart() {
           })}
         </div>
         <div className="sidebar-footer">
+          <div className="sidebar-shipping-options">
+            <p>Select your shipping</p>
+
+            <select
+              className="select-shipping"
+              onChange={handleShipping}
+              defaultValue={shippingMethod}>
+              <option value="standard">Standard (£0.00)</option>
+              <option value="premium">Premium (£4.99)</option>
+            </select>
+          </div>
+
           <h2 className="cart-total-price">
             Total Price: {cart.totalPrice.toFixed(2)}
           </h2>
+
+          <button
+            className="pill-shape sidebar-buy-button"
+            style={
+              sidebarBuyButtonText === "Purchased!!"
+                ? { backgroundColor: "green" }
+                : null
+            }
+            onClick={() => {
+              // dispay "Purchased" text
+              setSidebarBuyButtonText("Purchased!!");
+              // after a short delay, clear the cart, go to home page
+              setTimeout(() => {
+                dispatch(clearCart());
+                navigate("/");
+                setSidebarBuyButtonText("Buy");
+              }, 1500);
+            }}>
+            {sidebarBuyButtonText}
+          </button>
         </div>
       </>
     ),
