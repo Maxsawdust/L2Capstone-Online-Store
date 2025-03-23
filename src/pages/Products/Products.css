@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   /* funcitonality */
-  overflow: scroll;
+  overflow: auto;
 }
 
 .products-header {
