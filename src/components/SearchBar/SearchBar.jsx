@@ -18,14 +18,18 @@ export default function SearchBar() {
     // search storeInventory against state
     const matchingArr = [];
 
+    // if input is not empty
     if (input !== "") {
+      // filter the products to find the ones which contain the input
       storeInventory.allProducts.filter((product) => {
         product.name.toLowerCase().includes(input.toLowerCase())
-          ? matchingArr.push({ name: product.name, category: product.category })
+          ? // push these to the array
+            matchingArr.push({ name: product.name, category: product.category })
           : null;
       });
     }
 
+    // if there aren't any products in the array, then make sure it's empty
     matchingArr.length >= 1
       ? setMatchingProducts(matchingArr)
       : setMatchingProducts([]);
