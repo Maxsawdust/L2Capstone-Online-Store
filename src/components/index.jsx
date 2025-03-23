@@ -9,3 +9,4 @@ export { default as ProductCategoryCard } from "./ProductCategoryCard/ProductCat
 export { default as ProductCard } from "./ProductCard/ProductCard";
 export { default as SidebarCart } from "./SidebarCart/SidebarCart";
 export { default as CartProduct } from "./CartProduct/CartProduct";
+export { default as BuyButton } from "./BuyButton/BuyButton";

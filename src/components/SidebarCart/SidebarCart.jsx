@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./SidebarCart.css";
-import { clearCart, showSidebar } from "../../store/reducers/cartReducer";
+import { showSidebar } from "../../store/reducers/cartReducer";
 import emptyCartImage from "../../assets/images/empty-cart.png";
 import {
   incrementQuantity,
@@ -8,12 +8,10 @@ import {
   removeProduct,
   selectShipping,
 } from "../../store/reducers/cartReducer";
-import { Link, useNavigate } from "react-router";
-import { useState } from "react";
+import { useNavigate } from "react-router";
+import BuyButton from "../BuyButton/BuyButton";
 
 export default function SidebarCart() {
-  const [sidebarBuyButtonText, setSidebarBuyButtonText] = useState("Buy");
-
   // getting sidebar display state from store
   const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
   const shippingMethod = useSelector(
@@ -28,6 +26,10 @@ export default function SidebarCart() {
   );
   // getting cart object from store
   const cart = useSelector((state) => state.cartReducer);
+
+  const sidebarBuyButtonText = useSelector(
+    (state) => state.cartReducer.buyButtonText
+  );
 
   // function that sets sidebarShown to true or false
   const toggleSidebar = () => {
@@ -123,25 +125,7 @@ export default function SidebarCart() {
             Total Price: {cart.totalPrice.toFixed(2)}
           </h2>
 
-          <button
-            className="pill-shape sidebar-buy-button"
-            style={
-              sidebarBuyButtonText === "Purchased!!"
-                ? { backgroundColor: "green" }
-                : null
-            }
-            onClick={() => {
-              // dispay "Purchased" text
-              setSidebarBuyButtonText("Purchased!!");
-              // after a short delay, clear the cart, go to home page
-              setTimeout(() => {
-                dispatch(clearCart());
-                navigate("/");
-                setSidebarBuyButtonText("Buy");
-              }, 1500);
-            }}>
-            {sidebarBuyButtonText}
-          </button>
+          <BuyButton />
         </div>
       </>
     ),

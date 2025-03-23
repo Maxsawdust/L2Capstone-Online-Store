@@ -1,0 +1,8 @@
+.buy-button {
+  height: 4rem;
+  font-size: 1.5rem;
+  padding: 001.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

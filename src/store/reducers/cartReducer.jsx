@@ -5,6 +5,7 @@ const initialState = {
   shippingMethod: "standard",
   totalPrice: 0,
   isSidebarShown: false,
+  buyButtonText: "Buy",
 };
 
 const findExistingProduct = (state, action) => {
@@ -86,6 +87,10 @@ const cartSlice = createSlice({
       state.shippingMethod = "standard";
       state.isSidebarShown = false;
     },
+
+    setBuyButtonText: (state, action) => {
+      state.buyButtonText = action.payload;
+    },
   },
 });
 
@@ -97,5 +102,6 @@ export const {
   decrementQuantity,
   selectShipping,
   clearCart,
+  setBuyButtonText,
 } = cartSlice.actions;
 export default cartSlice.reducer;
