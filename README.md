@@ -18,7 +18,7 @@
 
 1. Clone the repo
 
-   ```bash
+   ```
    git init
    git clone git@github.com:Maxsawdust/L2Capstone-Online-Store.git
    ```
@@ -35,3 +35,18 @@
    ```
 
 ## 📝 Design Decisions
+
+- **Product pages**  
+  I decided not to create individual product pages due to the lack of information for each of them. I felt it was more usable without the added clutter.
+- **Themes**
+  I wanted to give the user some customisability, so I implemented a theme toggle switch!
+- **Retro**
+  Inspired by some of the older looking Apple PCs, I designed my site with a retro feel in mind.
+- **README**
+  This very file was built to be streamlined and attractive!
+
+## 🤔 What would I change?
+
+- Database integration with more products
+- Abillity to navigate to individual products with search bar
+- Updated design to look more current in places
