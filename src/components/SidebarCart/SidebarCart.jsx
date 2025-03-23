@@ -40,7 +40,9 @@ export default function SidebarCart() {
     dispatch(selectShipping(e.target.value));
   };
 
+  // object containing sidebar contents
   const sidebarContents = {
+    // contents if the cart is empty
     cartEmpty: (
       <div className="empty-cart">
         <h2>There's nothing here!</h2>
@@ -53,12 +55,14 @@ export default function SidebarCart() {
       </div>
     ),
 
+    // contents if the cart is occupied
     cartOccupied: (
       <>
         <button className="pill-shape" onClick={() => navigate("/cart")}>
           View Cart
         </button>
         <div className="list-of-products">
+          {/* mapping through products to render a product */}
           {cart.products.map((product) => {
             return (
               <div className="product-in-cart" key={`cart-${product.name}`}>
@@ -66,6 +70,7 @@ export default function SidebarCart() {
                   <p className="cart-product-name">{product.name}</p>
                   <div className="sidebar-amount-and-buttons">
                     <p className="cart-product-quantity">Amount: </p>
+                    {/* buttons to increment and decrement quantity of product */}
                     <div className="sidebar-counter-buttons">
                       <button
                         className="counter-button decrement-quantity"
@@ -108,10 +113,12 @@ export default function SidebarCart() {
             );
           })}
         </div>
+        {/* footer for the cart */}
         <div className="sidebar-footer">
           <div className="sidebar-shipping-options">
             <p>Select your shipping</p>
 
+            {/* select element which handles shipping options */}
             <select
               className="select-shipping"
               onChange={handleShipping}
@@ -125,6 +132,7 @@ export default function SidebarCart() {
             Total Price: {cart.totalPrice.toFixed(2)}
           </h2>
 
+          {/* Buy button */}
           <BuyButton />
         </div>
       </>
@@ -136,13 +144,16 @@ export default function SidebarCart() {
     return (
       <div
         className="SidebarCart"
+        // dynamic styling to display the sidebar cart on button click
         style={{
           transform: sidebarShown ? "translateX(0)" : "translateX(100%)",
         }}>
+        {/* button text changes on click */}
         <button className="sidebar-tag" onClick={toggleSidebar}>
           {sidebarShown ? "HIDE CART" : "SHOW CART"}
         </button>
 
+        {/* contents of cart change depending on what's in the cart in store */}
         <div className="sidebar-cart-contents">
           {cart.products.length > 0
             ? sidebarContents.cartOccupied
