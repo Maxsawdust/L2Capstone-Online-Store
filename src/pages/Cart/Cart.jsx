@@ -43,6 +43,7 @@ export default function Cart() {
                   />
                   <div className="cart-product-deletion-div">
                     <button
+                      key={`remove-${product.name}`}
                       className="cart-remove-item"
                       onClick={() => handleDeletion(product)}>
                       <svg
