@@ -6,12 +6,17 @@ import {
   incrementQuantity,
   decrementQuantity,
   removeProduct,
+  selectShipping,
 } from "../../store/reducers/cartReducer";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import BuyButton from "../BuyButton/BuyButton";
 
 export default function SidebarCart() {
   // getting sidebar display state from store
   const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
+  const shippingMethod = useSelector(
+    (state) => state.cartReducer.shippingMethod
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,9 +27,17 @@ export default function SidebarCart() {
   // getting cart object from store
   const cart = useSelector((state) => state.cartReducer);
 
+  const sidebarBuyButtonText = useSelector(
+    (state) => state.cartReducer.buyButtonText
+  );
+
   // function that sets sidebarShown to true or false
   const toggleSidebar = () => {
     dispatch(showSidebar(!sidebarShown));
+  };
+
+  const handleShipping = (e) => {
+    dispatch(selectShipping(e.target.value));
   };
 
   const sidebarContents = {
@@ -96,9 +109,23 @@ export default function SidebarCart() {
           })}
         </div>
         <div className="sidebar-footer">
+          <div className="sidebar-shipping-options">
+            <p>Select your shipping</p>
+
+            <select
+              className="select-shipping"
+              onChange={handleShipping}
+              defaultValue={shippingMethod}>
+              <option value="standard">Standard (£0.00)</option>
+              <option value="premium">Premium (£4.99)</option>
+            </select>
+          </div>
+
           <h2 className="cart-total-price">
             Total Price: {cart.totalPrice.toFixed(2)}
           </h2>
+
+          <BuyButton />
         </div>
       </>
     ),

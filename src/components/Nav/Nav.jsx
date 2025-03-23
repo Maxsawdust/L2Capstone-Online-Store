@@ -15,8 +15,8 @@ export default function Nav() {
       <Link to="/" className="nav-link">
         Home
       </Link>
-      <Link to="/about" className="nav-link">
-        About
+      <Link to="/help" className="nav-link">
+        Help
       </Link>
       {isLoggedIn ? (
         <ProfileButton />

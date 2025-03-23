@@ -1,15 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
-import { CartProduct } from "../../components";
+import { BuyButton, CartProduct } from "../../components";
 import "./Cart.css";
 import { useEffect } from "react";
-import { removeProduct, showSidebar } from "../../store/reducers/cartReducer";
+import {
+  removeProduct,
+  showSidebar,
+  selectShipping,
+} from "../../store/reducers/cartReducer";
 import emptyCartImage from "../../assets/images/empty-cart.png";
 
 export default function Cart() {
   const cartProducts = useSelector((state) => state.cartReducer.products);
   const cartValue = useSelector((state) => state.cartReducer.totalPrice);
-
   const sidebarShown = useSelector((state) => state.cartReducer.isSidebarShown);
+  const shippingMethod = useSelector(
+    (state) => state.cartReducer.shippingMethod
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,16 +29,17 @@ export default function Cart() {
     dispatch(removeProduct(product));
   };
 
+  const handleShipping = (e) => {
+    dispatch(selectShipping(e.target.value));
+  };
+
   return (
     <div className="Cart">
       <div className="cart-container">
         <div className="cart-header">
           <h1>View your cart</h1>
-          <div>
-            <h1>Your total:</h1>
-            <h1 className="cart-page-value">{cartValue.toFixed(2)}</h1>
-          </div>
         </div>
+
         <div className="products-in-cart">
           {cartProducts.length > 0 ? (
             cartProducts.map((product) => {
@@ -43,6 +51,7 @@ export default function Cart() {
                   />
                   <div className="cart-product-deletion-div">
                     <button
+                      key={`remove-${product.name}`}
                       className="cart-remove-item"
                       onClick={() => handleDeletion(product)}>
                       <svg
@@ -66,6 +75,28 @@ export default function Cart() {
               <img src={emptyCartImage} alt="" className="empty-cart-image" />
             </div>
           )}
+        </div>
+
+        <div className="cart-footer">
+          {cartProducts.length > 0 ? (
+            <>
+              <div className="cart-shipping-div">
+                <p>Select shipping</p>
+                <select
+                  className="select-shipping"
+                  onChange={handleShipping}
+                  defaultValue={shippingMethod}>
+                  <option value="standard">Standard (£0.00)</option>
+                  <option value="premium">Premium (£4.99)</option>
+                </select>
+              </div>
+              <div className="cart-footer-total">
+                <h1>Your total:</h1>
+                <h1 className="cart-page-value">{cartValue.toFixed(2)}</h1>
+              </div>
+              <BuyButton />
+            </>
+          ) : null}
         </div>
       </div>
     </div>

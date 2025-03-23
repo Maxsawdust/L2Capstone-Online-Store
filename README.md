@@ -1,12 +1,22 @@
-# React + Vite
+# Level 2 capstone project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This online store is a demonstration of all that I have learned about frontend development with React so far.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## State management
 
-## Expanding the ESLint configuration
+I've utilised global state management through redux, and manipulation of localStorage through Redux-persist.
+Doing so allows the user to interact with the page in a fluid, intuitive way, while storing all their information - login state, cart state - so that it persists
+between page refresh
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Form validation
+
+The user can register, and log in to my online store all while the inputs are cleanly and efficiently validated through the use of Formik and Yup.
+These libraries allow me to create custom validation logic, like for the registration form where I've made sure a user cannot register with an existing email,
+while giving me easy access to simple validation schema with custom error messages.
+
+## Additional functionality
+
+On top of what was required of me, I elected to add a theme toggle switch - allowing the user to customize the page to their preffered theme, and a search bar, so that the user can browse products directly.
+(NOTE: I decided against making individual product pages for this app, simply because there wasn't much product information to display and I think it behaves nicer without them.)
