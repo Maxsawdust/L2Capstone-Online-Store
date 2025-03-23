@@ -17,6 +17,21 @@
 ## 🚀 Getting Started
 
 1. Clone the repo
+
    ```bash
-   git clone
+   git init
+   git clone git@github.com:Maxsawdust/L2Capstone-Online-Store.git
    ```
+
+2. Install dependencies
+
+   ```
+   npm install
+   ```
+
+3. Run the App
+   ```
+   npm start
+   ```
+
+## 📝 Design Decisions
